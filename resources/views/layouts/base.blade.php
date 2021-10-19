@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
+    @livewireStyles
 </head>
 <body class="home-page home-01 ">
 
@@ -66,6 +67,44 @@
 										</li>
 									</ul>
 								</li>
+                                @if(Route::has('login'))
+                                    @auth
+                                        @if(Auth::user()->utype === 'ADM')
+                                            <li class="menu-item menu-item-has-children parent" >
+                                                <a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <ul class="submenu curency" >
+                                                    <li class="menu-item" >
+                                                        <a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                                    </li>
+                                                    <li class="menu-item" >
+                                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                                    </li>
+                                                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                                        @csrf													
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        @else
+                                            <li class="menu-item menu-item-has-children parent" >
+                                                <a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <ul class="submenu curency" >
+                                                    <li class="menu-item" >
+                                                        <a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
+                                                    </li>
+                                                    <li class="menu-item" >
+                                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                                    </li>
+                                                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                                        @csrf													
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        @endif
+                                    @else
+                                        <li class="menu-item" ><a title="Register or Login" href="{{ route('login') }}">Login</a></li>
+                                        <li class="menu-item" ><a title="Register or Login" href="{{ route('register') }}">Register</a></li>
+                                    @endif
+                                @endif
 							</ul>
 						</div>
 					</div>
@@ -164,13 +203,13 @@
 									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
-									<a href="shop.html" class="link-term mercado-item-title">Shop</a>
+									<a href="/shop" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
-									<a href="cart.html" class="link-term mercado-item-title">Cart</a>
+									<a href="/cart" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
-									<a href="checkout.html" class="link-term mercado-item-title">Checkout</a>
+									<a href="/checkout" class="link-term mercado-item-title">Checkout</a>
 								</li>
 								<li class="menu-item">
 									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
@@ -447,5 +486,6 @@
 	<script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
 	<script src="{{ asset('assets/js/functions.js')  }}"></script>
+    @livewireScripts
 </body>
 </html>
