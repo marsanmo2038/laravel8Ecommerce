@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Product;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -22,10 +23,10 @@ class ShopComponent extends Component
     public function render()
     {
        
-        $products = collect([
-            ['product_id' => 'prod-100', 'name' => 'Desk'],
-            ['product_id' => 'prod-200', 'name' => 'Chair'],
-        ]);
+        $products = Product::all();
+
+       // dd($products);
+
         $popular_products = collect([
             ['product_id' => 'prod-100', 'name' => 'Desk'],
             ['product_id' => 'prod-200', 'name' => 'Chair'],
@@ -36,9 +37,8 @@ class ShopComponent extends Component
         ]);
 
         return view('livewire.shop-component', [
-            'products' => $products,
-            'popular_products' => $popular_products,
-            'categories' => $categories
+            'productss' => $products
+           
         ])->layout('layouts.base');
     }
 

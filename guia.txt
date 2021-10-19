@@ -113,3 +113,11 @@ public function handle($request, $next)
 
     $this->throwFailedAuthenticationException($request);
 }
+
+
+
+php artisan make:model HomeSlider -m
+php artisan make:livewire admin/AdminHomeSliderComponent
+php artisan make:livewire admin/AdminAddHomeSliderComponent
+
+php artisan make:livewire admin/AdminEditHomeSliderComponent
