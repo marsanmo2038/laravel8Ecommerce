@@ -64,8 +64,8 @@
                       @foreach ($productss as $product)      
                         <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                             <div class="product product-style-3 equal-elem ">
-                                {{$product->id}}
-                                {{-- <div class="product-thumnail">
+                                
+                                <div class="product-thumnail">
                                     <a href="{{ route('product.details', ['slug' => $product->slug]) }}" title="{{ $product->name }}">
                                         <figure><img src="{{ asset('assets/images/products') }}/{{ $product->image }}" alt="{{ $product->name }}"></figure>
                                     </a>
@@ -74,7 +74,7 @@
                                     <a href="{{ route('product.details', ['slug' => $product->slug]) }}" class="product-name"><span>{{ $product->name }}</span></a>
                                     <div class="wrap-price"><span class="product-price">{{ $product->regular_price }}</span></div>
                                     <a class="btn add-to-cart" href="#" wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Add To Cart</a>
-                                </div> --}}
+                                </div> 
                             </div>
                         </li>
                         @endforeach   
