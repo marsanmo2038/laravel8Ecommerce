@@ -87,6 +87,41 @@ php artisan make:livewire CategoryComponent
 # Crear componente livewire para busquedas
 php artisan make:livewire HeaderSearchComponent
 php artisan make:livewire SearchComponent
+
+js / function 
+
+ mercado_chosen: function(){
+			if($('.wrap-search-form .wrap-list-cate').length > 0){
+                $('.wrap-search-form .wrap-list-cate').on('click', '.link-control', function (event) {
+					event.preventDefault();
+					$(this).siblings('ul').slideToggle();
+                });
+                $('.wrap-search-form .wrap-list-cate .list-cate').on('click', 'li', function (event) {
+                    var _this 	 = $(this),
+						//_value 	 = _this.attr('value'),
+						_value 	 = _this.text(),
+						_content = _this.text(),
+						_title 	 = _this.text();
+                    _content = _content.slice(0, 12);
+                    _this.parent().siblings('a').text(_content).attr('title',_title);
+                    //_this.parent().siblings('input[name="product-cate"]').val(_value);
+					_this.parent().siblings('input[name="product-cat"]').val(_value);
+					_this.parent().siblings('input[name="product-cat_id"]').val(_this.data("id"));
+                    _this.parent().slideUp();
+                });
+			}
+			if($("select:not(.except-chosen)").length > 0){
+				$("select:not(.except-chosen)").each(function(){
+					$(this).chosen();
+				});
+			}
+        },
+
+
+
+
+
+
 Agregar el handle de autenticación a los roles
 Editar el archivo 'vendor/laravel/fortify/src/Actions/AttempToAuthenticate.php'
 
@@ -121,3 +156,7 @@ php artisan make:livewire admin/AdminHomeSliderComponent
 php artisan make:livewire admin/AdminAddHomeSliderComponent
 
 php artisan make:livewire admin/AdminEditHomeSliderComponent
+
+
+php artisan make:livewire admin/AdminCategoryComponent
+
