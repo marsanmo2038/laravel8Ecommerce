@@ -29,6 +29,7 @@ class ShopComponent extends Component
         }
         else if($this->sorting == 'price'){
             $products = Product::orderBy('regular_price', 'ASC')->paginate($this->pagesize);
+           // dd($products, 'sort by precio');
         }
         else if($this->sorting == 'price-desc'){
             $products = Product::orderBy('regular_price', 'DESC')->paginate($this->pagesize);

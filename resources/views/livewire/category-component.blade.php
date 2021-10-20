@@ -5,7 +5,8 @@
         <div class="wrap-breadcrumb">
             <ul>
                 <li class="item-link"><a href="{{ url('/') }}" class="link">home</a></li>
-                <li class="item-link"><span>Digital & Electronics</span></li>
+                <li class="item-link"><span>Product Categories</span></li>
+                <li class="item-link"><span>{{ $category_name }}</span></li>
             </ul>
         </div>
         <div class="row">
@@ -20,7 +21,7 @@
 
                 <div class="wrap-shop-control">
 
-                    <h1 class="shop-title">Digital & Electronics</h1>
+                    <h1 class="shop-title">{{ $category_name }}</h1>
 
                     <div class="wrap-right">
 
@@ -58,13 +59,9 @@
                 <div class="row">
 
                     <ul class="product-list grid-products equal-container">
-                        
-
-                        <h1>producgtos</h1>
-                      @foreach ($productss as $product)      
+                        @foreach ($products as $product)      
                         <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                             <div class="product product-style-3 equal-elem ">
-                                
                                 <div class="product-thumnail">
                                     <a href="{{ route('product.details', ['slug' => $product->slug]) }}" title="{{ $product->name }}">
                                         <figure><img src="{{ asset('assets/images/products') }}/{{ $product->image }}" alt="{{ $product->name }}"></figure>
@@ -73,8 +70,8 @@
                                 <div class="product-info">
                                     <a href="{{ route('product.details', ['slug' => $product->slug]) }}" class="product-name"><span>{{ $product->name }}</span></a>
                                     <div class="wrap-price"><span class="product-price">{{ $product->regular_price }}</span></div>
-                                    <a class="btn add-to-cart" href="#" wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Add To Carttttt</a>
-                                </div> 
+                                    <a class="btn add-to-cart" href="#" wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})">Add To Cart</a>
+                                </div>
                             </div>
                         </li>
                         @endforeach   
@@ -83,14 +80,14 @@
                 </div>
 
                 <div class="wrap-pagination-info">
-                    {{ $productss->links() }}
-                    <ul class="page-numbers">
+                    {{ $products->links() }}
+                    {{-- <ul class="page-numbers">
                         <li><span class="page-number-item current">1</span></li>
                         <li><a class="page-number-item" href="#">2</a></li>
                         <li><a class="page-number-item" href="#">3</a></li>
                         <li><a class="page-number-item next-link" href="#">Next</a></li>
                     </ul>
-                    <p class="result-count">Showing 1-8 of 12 result</p> 
+                    <p class="result-count">Showing 1-8 of 12 result</p> --}}
                 </div>
             </div>
             <!--end main products area-->
@@ -100,11 +97,11 @@
                     <h2 class="widget-title">All Categories</h2>
                     <div class="widget-content">
                         <ul class="list-category">
-                         @foreach ($categories as $category)
+                            @foreach ($categories as $category)
                             <li class="category-item">
                                 <a href="{{ route('product.category', ['category_slug' => $category->slug]) }}" class="cate-link">{{ $category->name }}</a>
                             </li>
-                            @endforeach  
+                            @endforeach
                         </ul>
                     </div>
                 </div><!-- Categories widget-->
@@ -174,14 +171,14 @@
                                     height="331" alt="">
                             </figure>
                         </div>
-                    </div>   
+                    </div>
                 </div><!-- Size -->
 
                 <div class="widget mercado-widget widget-product">
                     <h2 class="widget-title">Popular Products</h2>
                     <div class="widget-content">
                         <ul class="products">
-                          @foreach ($popular_products as $p_product)  
+                            @foreach ($popular_products as $p_product)  
                             <li class="product-item">
                                 <div class="product product-widget-style">
                                     <div class="thumbnnail">
@@ -196,7 +193,7 @@
                                     </div>
                                 </div>
                             </li>
-                            @endforeach 
+                            @endforeach
                         </ul>
                     </div>
                 </div><!-- brand widget-->
