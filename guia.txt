@@ -160,3 +160,12 @@ php artisan make:livewire admin/AdminEditHomeSliderComponent
 
 php artisan make:livewire admin/AdminCategoryComponent
 
+php artisan make:livewire admin/AdminAddCategoryComponent
+php artisan make:livewire admin/AdminEditCategoryComponent
+
+
+
+
+git commit -m " 015 Edit Category"
+
+git push -u origin master  
