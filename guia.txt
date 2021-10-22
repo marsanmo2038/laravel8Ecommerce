@@ -164,8 +164,15 @@ php artisan make:livewire admin/AdminAddCategoryComponent
 php artisan make:livewire admin/AdminEditCategoryComponent
 
 
+php artisan make:livewire admin/AdminProductComponent
+    web.php
+    adminproductcomponent render
+    adminproductcompoente.blade
+    model product 
+    base acceso menu
 
 
-git commit -m " 015 Edit Category"
+
+git commit -m " 017 lista de productos"
 
 git push -u origin master  
