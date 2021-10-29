@@ -20,9 +20,9 @@
 
                             </div>
 
-                           {{--  <div class="col-md-6">
-                                <a href="{{route('admin.addProduct')}}" class="btn btn-success pull-right"> Add New</a>
-                            </div> --}}
+                            <div class="col-md-6">
+                                <a href="{{route('admin.addproduct')}}" class="btn btn-success pull-right"> Add New</a>
+                            </div> 
                         </div>
                     </div>
 
@@ -55,18 +55,18 @@
                                         <td>{{$product->created_at}}</td>
                                         <td></td>
                                         
-{{-- 
+
                                         <td>
                                             <a href="{{route('admin.editcategory',['category_slug'=>$product->slug])}}" ><i class="fa fa-edit fa-2x"></i></a>
                                             <a href="#" wire:click.prevent="deleteCategory({{$product->id}})" style="margin-left:10px"><i class="fa fa-times fa-2x"></i></a>
 
-                                        </td> --}}
+                                        </td> 
                                     </tr>    
                                 @endforeach
                             </tbody>
 
                         </table>
-                        {{-- {{$products->links}} --}}
+                        {{$products->links() }} 
 
                     </div>
 

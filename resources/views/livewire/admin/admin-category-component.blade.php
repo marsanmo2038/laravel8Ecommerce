@@ -52,12 +52,14 @@
                                         </td>
                                     </tr>    
                                 @endforeach
+                                
                             </tbody>
 
                         </table>
+                       
 
                     </div>
-
+                    {{ $categories->links() }}
                 </div>
 
             </div>

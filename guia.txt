@@ -171,6 +171,7 @@ php artisan make:livewire admin/AdminProductComponent
     model product 
     base acceso menu
 
+php artisan make:livewire admin/AdminAddProductComponent
 
 
 git commit -m " 017 lista de productos"
