@@ -101,9 +101,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Product Image</label>
+                                <label class="col-md-4 control-label">Product Images</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model='image'/>
+                                    <input type="file" accept="image/*" class="input-file" wire:model='image'/>
                                     @if($image) 
                                      <img src="{{$image->temporaryUrl()}}" width="120">
                                     @endif
@@ -122,6 +122,7 @@
                                 </div>
                             </div>
 
+                            <input type="file" wire:model="photo">
 
 
                             <div class="form-group">

@@ -57,8 +57,9 @@
                                         
 
                                         <td>
-                                            <a href="{{route('admin.editcategory',['category_slug'=>$product->slug])}}" ><i class="fa fa-edit fa-2x"></i></a>
-                                            <a href="#" wire:click.prevent="deleteCategory({{$product->id}})" style="margin-left:10px"><i class="fa fa-times fa-2x"></i></a>
+                                            <a href="{{route('admin.editproduct',['product_slug'=>$product->slug])}}" ><i class="fa fa-edit fa-2x"></i></a>
+{{--                                             <a href="#" wire:click.prevent="deleteproduct({{$product->id}})" style="margin-left:10px"><i class="fa fa-times fa-2x"></i></a>
+ --}}                                            <a href="#" wire:click.prevent="deleteProduct({{$product->id}})" style="margin-left:10px"><i class="fa fa-times fa-2x"></i></a>
 
                                         </td> 
                                     </tr>    
