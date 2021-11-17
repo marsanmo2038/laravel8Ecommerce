@@ -122,7 +122,7 @@
                                 </div>
                             </div>
 
-                            <input type="file" wire:model="photo">
+                          
 
 
                             <div class="form-group">

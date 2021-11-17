@@ -16,6 +16,8 @@ class AdminAddCategoryComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
+    
+
     public function storeCategory(){
         $category = new Category();
         $category->name = $this->name;

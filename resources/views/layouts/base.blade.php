@@ -16,6 +16,13 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
     @livewireStyles
+
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+	
 </head>
 <body class="home-page home-01 ">
 
@@ -80,6 +87,9 @@
                                                     </li>
 													<li class="menu-item" >
                                                         <a title="Products" href="{{ route('admin.products') }}">All Products</a>
+                                                    </li>
+													<li class="menu-item" >
+                                                        <a title="Manage Home Slider" href="{{ route('admin.homeslider') }}">Manage Home Slider</a>
                                                     </li>
                                                     <li class="menu-item" >
                                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
@@ -456,11 +466,16 @@
 	<script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
-	{{-- <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
- --}}	<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+	<script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
+ 	<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
 	<script src="{{ asset('assets/js/functions.js')  }}"></script>
+	<script>
+		window.addEventListener('show-delete-modal', event =>{
+			$('#confirmationModal').modal('show');
+		})
+	</script>
     @livewireScripts
 </body>
 </html>
