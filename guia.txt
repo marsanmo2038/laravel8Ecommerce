@@ -222,3 +222,19 @@ min 18.10 ...  funciona menu ..
 
 slider admin .. funciona : queda pendiente modal livewire que no va...
 
+22 --- last product en pantalla principal.
+
+23-  Admin Show Product Categories On Homepage
+
+
+make:livewrire admin/AdminHomeCategoryComponent
+
+
+routes .. 
+
+
+27 -SALTAMOS AL 27 , validacion de formulario de productos.. queda pendiente slug que da como ya repetido ..y no actualiza precio
+
+
+
+

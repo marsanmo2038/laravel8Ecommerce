@@ -32,7 +32,7 @@ class AdminEditProductComponent extends Component
     public $newimage;
     public $product_id;
 
-    public $product_slug;
+    //public $product_slug;
 
     public function mount($product_slug){
         $this->slug = $product_slug;
@@ -53,10 +53,40 @@ class AdminEditProductComponent extends Component
         $this->product_id = $product->id;
 
     }
+    public function updated($fields){
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price'=> 'required|numeric',
+            'sale_price' => 'numeric',
+            'SKU'=> 'required',
+            'stock_status'=> 'required',
+            'quantity'=> 'required|numeric',
+            'newimage'=> 'required|mimes:jpeg,png',
+            'category_id' => 'required',
+        ]);
 
+    }
 
-    public function updateProduct($product_slug)
+    public function updateProduct()
     {
+
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price'=> 'required|numeric',
+            'sale_price' => 'numeric',
+            'SKU'=> 'required',
+            'stock_status'=> 'required',
+            'quantity'=> 'required|numeric',
+            'newimage'=> 'required|mimes:jpeg,png',
+            'category_id' => 'required',
+        ]);
+        
         $product = Product::where('slug', $product_slug)->first();
 
         $this->name = $product->name;
