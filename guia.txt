@@ -242,3 +242,31 @@ routes ..
 
 php artisan make:livewire WishlistCountComponent
 php artisan make:livewire CartCountComponent
+
+
+33 mostrar todos los wishlist
+
+php artisan make:livewire WishlistComponent
+
+
+
+**************
+SALTO A 39 CHECK OUT 
+
+php artisan make:model Order -m 
+
+php artisan make:model OrderItem -m 
+php artisan make:model Shipping -m 
+php artisan make:model Transaction -m 
+
+creamos migraciones
+creamos modelos 
+
+php artisan migrate
+
+40 Cart Settings for Checkout
+_______________________________
+
+CartComponent checkout  
+/cart ...
+
