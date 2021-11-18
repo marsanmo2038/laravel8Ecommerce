@@ -238,3 +238,7 @@ routes ..
 
 28  -CONFIRMACION DE BORRAR PRODUCTO ... 
 
+31 wishlist --- refresh list 
+
+php artisan make:livewire WishlistCountComponent
+php artisan make:livewire CartCountComponent

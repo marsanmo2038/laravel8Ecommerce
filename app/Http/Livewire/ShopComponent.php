@@ -7,6 +7,8 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Category;
 use Cart;
+use Gloudemans\Shoppingcart\Cart as ShoppingcartCart;
+use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
 
 class ShopComponent extends Component
 {
@@ -19,6 +21,8 @@ class ShopComponent extends Component
         $this->sorting = "default";
         $this->pagesize = 12;
     }
+
+    
     
     use WithPagination;    
     public function render()
@@ -49,9 +53,36 @@ class ShopComponent extends Component
         ])->layout('layouts.base');
     }
 
+
+    public function addToWishlist($product_id, $product_name, $product_price)
+    {
+        //dd(Cart::instance('whislist')->content()->pluck('id')); 
+        Cart::instance('wishlist')->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
+        
+        $this->emitTo('wishlist-count-component','refreshComponent');
+
+        //session()->flash('success_message', 'Item added in Wishlist');
+    }
+
+    public function removeFromWishlist($product_id){
+        foreach(Cart::instance('wishlist')->content() as $witem)
+        {
+            if($witem->id == $product_id)
+            {
+                Cart::instance('wishlist')->remove($witem->rowId);
+                $this->emitTo('wishlist-count-component','refreshComponent');
+                return;
+            }
+
+        }  
+    }
+
     public function store($product_id, $product_name, $product_price)
     {
-        Cart::add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
+        Cart::instance('cart')->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
+        $this->emitTo('cart-count-component','refreshComponent');
+       
+        // Cart::add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
         session()->flash('success_message', 'Item added in Cart');
 
         return redirect()->route('product.cart');
