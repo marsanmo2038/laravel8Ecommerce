@@ -85,7 +85,7 @@
                          $witems = Cart::instance('wishlist')->content()->pluck('id');
                          @endphp
 
-                         {{$witems}}
+                         {{$productss}}
 
                       @foreach ($productss as $product)      
                         <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
