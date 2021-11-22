@@ -278,3 +278,25 @@ Add SaveForLater Option on Cart Page
 HACEMOS UNA PRUEBAS PARA 
 
 php artisan make:test CuponsTest
+
+
+36 CUPONES 
+
+php artisan make:livewire admin/AdminCouponsComponent
+php artisan make:livewire admin/AdminAddCouponComponent
+php artisan make:livewire admin/AdminEditCouponComponent
+
+php artisan make:model Coupon -m 
+
+cupones cerados 
+TODO : code es unico y al guardar y validando da error..
+
+
+
+37 Apply Coupons  
+
+38 add expiry date to Coupons
+php artisan make:migration add_expiry_date_to_coupons_table --table=coupons
+
+fin gestion de cupones
+
