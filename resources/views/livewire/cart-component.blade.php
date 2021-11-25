@@ -8,7 +8,8 @@
                 <li class="item-link"><span>Cart</span></li>
             </ul>
         </div>
-        <div class=" main-content-area">     
+        <div class=" main-content-area">  
+            
             
             @if(Cart::instance('cart')->count() > 0)
 
@@ -104,7 +105,7 @@
                                 </div>
                             @endif
                         @endif
-                        <a class="btn btn-checkout" href="checkout.html">Check out</a>
+                        <a class="btn btn-checkout" href="#" wire:click.prevent="checkout">Check out</a>
                         
                         <a class="link-to-shop" href="{{ url('/shop') }}">Continue Shopping<i class="fa fa-arrow-circle-right"
                                 aria-hidden="true"></i></a>
@@ -114,7 +115,7 @@
                         <a class="btn btn-update" href="#">Update Shopping Cart</a>
                     </div>
                 </div>
-                @else
+            @else
                 <div class="text-center" style="padding:30px 0;">
                     <h1>Your cart is empty!</h1>
                     <p>Add items to it now</p>

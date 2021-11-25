@@ -300,3 +300,12 @@ php artisan make:migration add_expiry_date_to_coupons_table --table=coupons
 
 fin gestion de cupones
 
+VOLVEMOS A 40  Para CART SETTINGS ..
+
+php artisan make:livewire CheckoutComponent
+
+php artisan make:livewire ThankyouComponent
+
+
+42 checkout with Stripe 
+
