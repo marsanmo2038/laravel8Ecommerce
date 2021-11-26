@@ -1,4 +1,21 @@
 <main id="main" class="main-site">
+    <style>
+        /* 
+        .summary-item .row-in-form input[type="email"], .summary-item .row-in-form input[type= "text"], .sumary-item;
+         
+        font-size: 13px;
+        line-height: 19px;
+        display: inline-block;
+        height: 43px;
+        padding: 2px 20px;
+        max-width: 300px;
+        width: 100%;
+        border: 1px solid #e6e6e6;
+
+*/
+
+
+    </style>
     <div class="container">
         <div class="wrap-breadcrumb">
             <ul>
@@ -170,8 +187,44 @@
                 <div class="summary summary-checkout">
                     <div class="summary-item payment-method">
                         <h4 class="title-box">Payment Method</h4>
-                        <p class="summary-info"><span class="title">Check / Money order</span></p>
+         {{--                <p class="summary-info"><span class="title">Check / Money order</span></p>
                         <p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
+ --}}                        
+                        @if($payamentmode == 'card')
+                            @if(Session::has('stripe_error'))
+                                <div class="alert alert-danger" role="alert">
+                                   {{Session::get('stripe_error')}} 
+                                </div>
+                            @endif
+
+                            <div class="wrap-address-billing">
+                                <p class="row-in-form">
+                                    <label for="card-no" >Card Number:<span>*</span></label>
+                                    <input type="number" name="card_no" value="" placeholder="Your Card Number" wire:model="card_no">
+                                    @error('card_no') <span class="text-danger">{{$message}}</span> @enderror
+                                </p>
+
+                                <p class="row-in-form">
+                                    <label for="zip-code" >Expiry Month<span>*</span></label>
+                                    <input type="number" name="exp_month" value="" placeholder="Your Expiry Month" wire:model="exp_month">
+                                    @error('exp_month') <span class="text-danger">{{$message}}</span> @enderror
+                                </p>
+
+                                <p class="row-in-form">
+                                    <label for="zip-code" >Expiry Year<span>*</span></label>
+                                    <input type="number" name="exp_year" value="" placeholder="Your Expiry Year" wire:model="exp_year">
+                                    @error('exp_year') <span class="text-danger">{{$message}}</span> @enderror
+                                </p>
+
+                                <p class="row-in-form">
+                                    <label for="zip-code" >CVC : <span>*</span></label>
+                                    <input type="number" name="cvc" value="" placeholder="cvc" wire:model="cvc">
+                                    @error('cvc') <span class="text-danger">{{$message}}</span> @enderror
+                                </p>
+
+                            </div>
+                        @endif
+                        
                         <div class="choose-payment-methods">
                             <label class="payment-method">
                                 <input type="radio" name="payament-method" id=".payment-method-bank" value="cod" wire:model="payamentmode">

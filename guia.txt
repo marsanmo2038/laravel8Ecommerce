@@ -309,3 +309,27 @@ php artisan make:livewire ThankyouComponent
 
 42 checkout with Stripe 
 
+https://cartalyst.com/manual/stripe/2.0
+
+"cartalyst/stripe": "~2.0"
+composer update
+Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+
+.env  
+
+stripe en web registrar.
+marcos.visualnt
+TiendaOnline_654*
+
+desarrolladores - key - SearchComponent
+
+composer require stripe/stripe-php
+https://www.positronx.io/integrate-stripe-payment-gateway-in-laravel-application/
+
+
+
+
+
+
+
