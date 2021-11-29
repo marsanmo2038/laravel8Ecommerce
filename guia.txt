@@ -342,3 +342,12 @@ php artisan make:livewire admin/AdminOrderDetailsComponent
 php artisan make:livewire user/UserOrdersComponent
 php artisan make:livewire user/UserOrderDetailsComponent
 
+46 orders status
+
+php artisan make:migration add_delivered_canceled_date_to_orders_table --table=orders
+
+php artisan migrate
+
+47 order cancel -- users
+todo . falta volver a a abri la order .. una vez cancelada..
+
