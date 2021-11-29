@@ -332,6 +332,13 @@ https://www.positronx.io/integrate-stripe-payment-gateway-in-laravel-application
 php artisan make:livewire admin/AdminOrderComponent
 
 
+44
+php artisan make:livewire admin/AdminOrderDetailsComponent
 
 
+
+45 ordenes de un usuario 
+
+php artisan make:livewire user/UserOrdersComponent
+php artisan make:livewire user/UserOrderDetailsComponent
 
