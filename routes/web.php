@@ -13,6 +13,8 @@ use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
 use App\Http\Livewire\Admin\AdminHomeCategoryComponent as AdminAdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminOrderComponent;
+use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\AdminHomeCategoryComponent;
 use App\Http\Livewire\CartComponent;
@@ -45,6 +47,9 @@ Route::get('/', HomeComponent::class);
 Route::get('/shop', ShopComponent::class);
 Route::get('/cart', CartComponent::class)->name('product.cart');
 
+Route::get('/checkout', CheckoutComponent::class)->name('checkout');
+
+
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 Route::get('/product-category/{category_slug}', CategoryComponent::class)->name('product.category');
 
@@ -67,7 +72,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
 });
 
-// Dashboard particular para administradores
+// Dashboard particular para administradores ,'authadmin'
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
     Route::get('/admin/categories', AdminCategoryComponent::class)->name('admin.categories');
@@ -83,10 +88,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/admin/slider/edit/{slider_id}', AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
     Route::get('/admin/home-categories', AdminAdminHomeCategoryComponent::class)->name('admin.homecategories');
 
+   // Route::get('/admin/sale',AdminSaleComponent::class)->name('admin.sale');
+
     Route::get('/admin/coupons', AdminCuponsComponent::class)->name('admin.coupons');
     Route::get('/admin/coupons/add', AdminAddCuponsComponent::class)->name('admin.addcoupon');
     Route::get('/admin/coupons/edit/{coupon_id}', AdminEditCuponsComponent::class)->name('admin.editcoupon');
-    Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
-
+    Route::get('/admin/orders', AdminOrderComponent::class)->name('admin.orders');
+    Route::get('/admin/orders/{order_id}',AdminOrderDetailsComponent::class)->name('admin.ordersdetail');
 });

@@ -328,6 +328,8 @@ composer require stripe/stripe-php
 https://www.positronx.io/integrate-stripe-payment-gateway-in-laravel-application/
 
 
+43 SHOW Order
+php artisan make:livewire admin/AdminOrderComponent
 
 
 
